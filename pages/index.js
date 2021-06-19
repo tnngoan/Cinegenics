@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
-import Result from "../components/Result";
+import Results from "../components/Results";
 import requests from "../utils/requests";
 
-export default function Home(props) {
-  console.log(props);
+export default function Home({ results}) {
+  console.log({results});
   return (
     <div>
       <Head>
@@ -15,22 +15,23 @@ export default function Home(props) {
       </Head>
       <Header />
       <Nav />
-      <Result />
+      <Results results={results} />
     </div>
   );
 }
 
-export async function GetServerSideProps(context) {
+export async function getServerSideProps(context) {
   const genre = context.query.genre;
-
-  // const request1 = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url}`).then((res) => res.json());
-
-  const request2 = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
-    const data = await request2.json();
-    console.log(data);
+  const tryThis = `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}`;
+  const url = `https://api.themoviedb.org/3${
+    requests[genre]?.url || requests.fetchTrending.url
+  }`;
+  const request = await fetch(url);
+  console.log("link: "+tryThis);
+  const data = await request.json();
   return {
     props: {
-     result: data.results,
+      results: data.results,
     },
   };
 }

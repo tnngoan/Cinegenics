@@ -1,5 +1,5 @@
 const API_KEY = process.env.API_KEY;
-console.log("jj"+API_KEY);
+
 export default {
   fetchTrending: {
     title: "Trending",
