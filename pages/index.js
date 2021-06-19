@@ -25,11 +25,9 @@ export async function GetServerSideProps(context) {
 
   // const request1 = await fetch(`https://api.themoviedb.org/3${requests[genre]?.url || requests.fetchTrending.url}`).then((res) => res.json());
 
-  const request2 = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=38ba003f471027424263d4c52f16a25c`).then(function(res){
-    console.log(res.status);
-  });
-  const data = await request2.json();
-  console.log(data);
+  const request2 = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`);
+    const data = await request2.json();
+    console.log(data);
   return {
     props: {
      result: data.results,
