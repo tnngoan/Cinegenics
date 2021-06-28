@@ -10,7 +10,7 @@ import {
   LightningBoltIcon,
 } from "@heroicons/react/outline";
 
-const logo = require("../img/logo.png");
+const logo = require("../img/hululogo.png");
 
 function Header() {
   return (
@@ -23,7 +23,7 @@ function Header() {
         <HeaderItem title="SEARCH" Icon={SearchIcon} />
         <HeaderItem title="ACCOUNT" Icon={UserIcon} />
       </div>
-      <Image className="object-contain" src={logo} width={200} height={70} />
+      <Image className="object-contain" src={logo} width={100} height={40} />
     </header>
   );
 }
