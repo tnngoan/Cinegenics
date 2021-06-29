@@ -4,6 +4,6 @@
 
 @layer base {
     body {
-        @apply bg-indigo-900 text-indigo-300;
+        @apply bg-[#171D26] text-indigo-300;
     }
 }
